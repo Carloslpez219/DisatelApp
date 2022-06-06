@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="!mostrarData">
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">No hay notificaciones!</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <div *ngIf="mostrarData" >
+    <ion-item *ngFor="let item of notificaciones" >
+      <ion-label>
+        <h5>Notificación</h5>
+        <h3>{{item}}</h3>
+        <p>{{item}}</p>
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>

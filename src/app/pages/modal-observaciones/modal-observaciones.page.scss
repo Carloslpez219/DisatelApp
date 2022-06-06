@@ -1,0 +1,31 @@
+ion-content{
+    --background: #f0f0f0;
+}
+
+ion-toolbar {
+    --background: #66615B;
+    --color: white;
+}
+
+.check{
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+
+ion-item {
+    --border-color: transparent !important;
+    --background: #ececec;
+    border-radius: 14px;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+ion-list {
+    background-color: #FFF;
+}
+
+.button-save{
+    --background: #4c4c4a;
+}
+

@@ -1,0 +1,133 @@
+<ion-header *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Constancia de visita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Empresa:</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>{{ orden.razon_social }}</ion-label>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>Dirección:</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>{{ orden.direccion1 }}</ion-label>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>Ejecutivo de cuenta:</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>{{ orden.ejecutivo }}</ion-label>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>Instaladores:</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let tecnico of orden.tecnicos" >
+      <ion-label>{{ tecnico.tecnico }}</ion-label>
+    </ion-item>
+    <ion-item-divider>
+      <ion-label>Tipo de trabajo:</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let trabajo of orden.detalle_trabajos" >
+      <ion-label>{{ trabajo.servicio }}</ion-label>
+    </ion-item>
+      
+      <ion-item-divider>
+        <ion-label>Observaciones Instalador:</ion-label>
+      </ion-item-divider>
+    <ion-card>
+      <ion-label style=" margin-left: 15px;  margin-top: 11px;">Problema reportado:</ion-label>
+      <ion-item mode="md" class="ion-item" style="margin-top: 25px;">
+        <ion-textarea placeholder="Problema reportado:" rows="5" clearOnEdit="false" clearInput [(ngModel)]="reportado"></ion-textarea>
+        <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
+      </ion-item>
+      <ion-label style=" margin-left: 15px;  margin-top: 11px;">Problema encontrado:</ion-label>
+      <ion-item mode="md" class="ion-item" style="margin-top: 25px;">
+        <ion-textarea placeholder="Problema encontrado:"  rows="5" clearOnEdit="false" clearInput [(ngModel)]="encontrado"></ion-textarea>
+        <ion-icon name="eye-outline" slot="start"></ion-icon>
+      </ion-item>
+      <ion-label style=" margin-left: 15px;  margin-top: 11px;">Solución:</ion-label>
+      <ion-item mode="md" class="ion-item" style="margin-top: 25px; margin-bottom: 25px;">
+        <ion-textarea placeholder="Solución del problema:"  rows="5" clearOnEdit="false" clearInput [(ngModel)]="solucion"></ion-textarea>
+        <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
+      </ion-item>
+      
+    </ion-card>
+
+    <ion-item-divider>
+      <ion-label>Observaciones generales:</ion-label>
+    </ion-item-divider>
+  <ion-card>
+    
+    <ion-item mode="md" class="ion-item" style="margin-top: 25px; margin-bottom: 25px;">
+      <ion-textarea placeholder="Observaciones" rows="5" clearOnEdit="false" clearInput [(ngModel)]="observacion"></ion-textarea>
+      <ion-icon name="chatbox-ellipses-outline" slot="start"></ion-icon>
+    </ion-item>
+    
+  </ion-card>
+
+  <ion-item-divider>
+    <ion-label>Observaciones Internas:</ion-label>
+  </ion-item-divider>
+<ion-card>
+  
+  <ion-item mode="md" class="ion-item" style="margin-top: 25px; margin-bottom: 25px;">
+    <ion-textarea placeholder="Observaciones" rows="5" clearOnEdit="false" clearInput [(ngModel)]="internas"></ion-textarea>
+    <ion-icon name="chatbox-ellipses-outline" slot="start"></ion-icon>
+  </ion-item>
+  
+</ion-card>
+
+  <ion-item-divider>
+    <ion-label>Nombre del que recibe:</ion-label>
+  </ion-item-divider>
+
+  <ion-card>
+    <ion-list>
+      <ion-item mode="md">
+        <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+        <ion-input placeholder="Recibe" type="name" clearOnEdit="false" [(ngModel)]="recibe">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-item-divider>
+    <ion-label>Firma del Encargado:</ion-label>
+  </ion-item-divider>
+
+  <ion-card class="ion-card-slide ion-activatable" style="padding-bottom: 6%; padding-top: 5%;" (click)="mostrarModalSignEncargado()">
+    <ion-card-subtitle style="padding-left: 5%; padding-bottom: 1%;">Pulsa para firmar</ion-card-subtitle>
+    <img src="../../../assets/img/imageSign.jpg" class="imageDefault" *ngIf="!mostrarFirmaEncargado">
+    <img [src]="signatureEncargado" class="imageDefault" *ngIf="mostrarFirmaEncargado">
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-card>
+
+  </ion-item-group>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="3"></ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="button-save" strong="true" (click)="enviar()">
+          enviar
+          <ion-icon slot="start" color="white" name="send"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

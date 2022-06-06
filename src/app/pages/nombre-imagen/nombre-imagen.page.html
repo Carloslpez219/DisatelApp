@@ -1,0 +1,34 @@
+<ion-header  *ngIf="viewEntered">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Nombre de imagen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  *ngIf="viewEntered">
+<div class="container">
+  <ion-card class="body">   
+    <ion-list>
+      <ion-item mode="md">
+        <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+        <ion-input placeholder="Nombre" type="name" clearOnEdit="true" clearInput [(ngModel)]="nombre">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" class="button-1" (click)="aceptar()" >Aceptar
+            <ion-icon slot="start" color="white" name="checkbox"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</div>
+
+</ion-content>

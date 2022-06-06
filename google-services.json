@@ -1,0 +1,32 @@
+{
+    "project_info": {
+        "project_number": "157974052550",
+        "firebase_url": "https://disatel-21448.firebaseio.com",
+        "project_id": "disatel-21448",
+        "storage_bucket": "disatel-21448.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:157974052550:android:10b7a5f61cb470b166a1c7",
+            "android_client_info": {
+                "package_name": "gt.bpm.disatel"
+            }
+        },
+        "oauth_client": [{
+            "client_id": "157974052550-s9t6iofo94rq7a8bjr0v32h4fuif8r0k.apps.googleusercontent.com",
+            "client_type": 3
+        }],
+        "api_key": [{
+            "current_key": "AIzaSyBv512YW9ozVJaynVSpIv8xODTA4mSGzlI"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "157974052550-s9t6iofo94rq7a8bjr0v32h4fuif8r0k.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
+        }
+    }],
+    "configuration_version": "1"
+}

@@ -1,0 +1,131 @@
+<ion-header *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>SIM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label class="alignright">
+            <ion-icon name="calculator" style="zoom:3;" class="ion-icon" slot="start"></ion-icon>
+            <ion-note style="font-size: 22px;">&nbsp;Detalles de la SIM&nbsp;</ion-note>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Código :</ion-badge>
+        </ion-col>
+        <ion-col size="7.1">
+          <ion-text *ngIf="sim.codigo !== '' || sim.codigo !== null" >
+            <h6>{{sim.codigo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.codigo === '' || sim.codigo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.2">
+          <ion-badge class="badge">IMSI :</ion-badge>
+        </ion-col>
+        <ion-col size="9.8">
+          <ion-text *ngIf="sim.imsi !== '' || sim.imsi !== null" >
+            <h6>{{sim.imsi}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.imsi === '' || sim.imsi === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.7">
+          <ion-badge class="badge">Capacidad:</ion-badge>
+        </ion-col>
+        <ion-col size="8.3">
+          <ion-text *ngIf="sim.capacidad !== '' || sim.capacidad !== null" >
+            <h6>{{sim.capacidad}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.capacidad === '' || sim.capacidad === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.4">
+          <ion-badge class="badge">Telefonía :</ion-badge>
+        </ion-col>
+        <ion-col size="8.6">
+          <ion-text *ngIf="sim.telefonia !== '' || sim.telefonia !== null" >
+            <h6>{{sim.telefonia}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.telefonia === '' || sim.telefonia === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.2">
+          <ion-badge class="badge">Teléfono :</ion-badge>
+        </ion-col>
+        <ion-col size="8.8">
+          <ion-text *ngIf="sim.telefono !== '' || sim.telefono !== null" >
+            <h6>{{sim.telefono}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.telefono === '' || sim.telefono === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.6">
+          <ion-badge class="badge">Ubicacion :</ion-badge>
+        </ion-col>
+        <ion-col size="8.4">
+          <ion-text *ngIf="sim.ubicacion !== '' || sim.ubicacion !== null" >
+            <h6>{{sim.ubicacion}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.ubicacion === '' || sim.ubicacion === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.4">
+          <ion-badge class="badge">Vehículo :</ion-badge>
+        </ion-col>
+        <ion-col size="8.6">
+          <ion-text *ngIf="sim.vehiculo !== '' || sim.vehiculo !== null" >
+            <h6>{{sim.vehiculo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.vehiculo === '' || sim.sivehiculom === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1.5">
+          <ion-badge class="badge">IP :</ion-badge>
+        </ion-col>
+        <ion-col size="10.5">
+          <ion-text *ngIf="sim.ip !== '' || sim.ip !== null" >
+            <h6>{{sim.ip}}</h6>
+          </ion-text>
+          <ion-text *ngIf="sim.ip === '' || sim.ip === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

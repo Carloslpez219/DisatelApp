@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Seguridad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="mostrarData" class="animate__animated animate__fadeInDownBig">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Usuario y contraseña
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+  <form (ngSubmit)="resetPassword()" [formGroup]="changeForm">
+    <ion-list>
+      <small>Nombre de Usuario:*</small>
+      <ion-item mode="md">
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-input placeholder="User" type="name" formControlName="nombre">
+        </ion-input>
+      </ion-item>
+      <div class="errors" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <span *ngIf="nombre.errors.required">
+          <ion-label class="error-container">Este campo es requerido</ion-label>
+        </span>
+      </div>
+      <small>Usuario:*</small>
+      <ion-item mode="md">
+        <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+        <ion-input placeholder="User" type="name" clearOnEdit="true" clearInput formControlName="usuario">
+        </ion-input>
+      </ion-item>
+      <div class="errors" *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
+        <span *ngIf="usuario.errors.required">
+          <ion-label class="error-container">Este campo es requerido</ion-label>
+        </span>
+      </div>
+      <small>Contraseña:*</small>
+      <ion-item mode="md">
+        <ion-icon slot="start" name="lock-open"></ion-icon>
+        <ion-icon slot="end" name="checkmark-circle-sharp" *ngIf="password.value == confirmPassword.value && password.value != '' && (confirmPassword.dirty || confirmPassword.touched)" class="valid-icon"></ion-icon>
+        <ion-icon slot="end" name="close-circle-sharp" *ngIf="password.value != confirmPassword.value && (confirmPassword.dirty || confirmPassword.touched)" class="valid-icon-X"></ion-icon>
+        <ion-input placeholder="Password" type="password" clearOnEdit="true" formControlName="password" (ngModelChange)="seguridad_clave(password.value)">
+        </ion-input>
+      </ion-item>
+      <div class="errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <span *ngIf="password.errors.required">
+          <ion-label class="error-container">Este campo es requerido</ion-label>
+        </span>
+      </div>
+      <small>Confirmar Contraseña:*</small>
+      <ion-item mode="md">
+        <ion-icon slot="start" name="lock-open"></ion-icon>
+        <ion-icon slot="end" name="checkmark-circle-sharp" *ngIf="password.value == confirmPassword.value && confirmPassword.value != '' && (confirmPassword.dirty || confirmPassword.touched)" class="valid-icon"></ion-icon>
+        <ion-icon slot="end" name="close-circle-sharp" *ngIf="password.value != confirmPassword.value && (confirmPassword.dirty || confirmPassword.touched)" class="valid-icon-X"></ion-icon>
+        <ion-input placeholder="Password" type="password" clearOnEdit="true" formControlName="confirmPassword">
+        </ion-input>
+      </ion-item>
+      <div class="errors" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+        <span *ngIf="confirmPassword.errors.required">
+          <ion-label class="error-container">Este campo es requerido</ion-label>
+        </span>
+      </div>
+    </ion-list>
+    <br>
+    <br>
+    <ion-note>Fuerza de la contraseña:</ion-note>
+    <ion-list>
+      <ion-progress-bar class="progress" [value]="valueBar" [color]="color"></ion-progress-bar>
+    </ion-list>
+    <ion-grid>
+      <br>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="block" class="button-clean" fill="outline" color="dark" (click)="clean()"
+            strong="true">Limpiar
+            <ion-icon slot="start" color="black" name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="block" class="button-save" type="submit" [disabled]="!changeForm.valid || password.value != confirmPassword.value"
+            strong="true">Guardar
+            <ion-icon slot="start" color="white" name="save"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-card-content>
+</ion-card>
+</ion-content>

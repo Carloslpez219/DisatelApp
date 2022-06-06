@@ -1,0 +1,7 @@
+{
+  "name": "DisatelApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

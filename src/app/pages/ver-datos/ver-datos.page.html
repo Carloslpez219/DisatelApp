@@ -1,0 +1,157 @@
+<ion-header *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Equipo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label class="alignright">
+            <ion-icon name="settings" style="zoom:3;" class="ion-icon" slot="start"></ion-icon>
+            <ion-note  style="font-size: 22px;">&nbsp;Detalles del equipo&nbsp;</ion-note>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Código :</ion-badge>
+        </ion-col>
+        <ion-col size="7.1">
+          <ion-text *ngIf="equipo.codigo !== '' || equipo.codigo !== null" >
+            <h6>{{equipo.codigo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.codigo === '' || equipo.codigo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.2">
+          <ion-badge class="badge">IMEI :</ion-badge>
+        </ion-col>
+        <ion-col size="9.8">
+          <ion-text *ngIf="equipo.imei !== '' || equipo.imei !== null" >
+            <h6>{{equipo.imei}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.imei === '' || equipo.imei === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4.7">
+          <ion-badge class="badge">Código interno:</ion-badge>
+        </ion-col>
+        <ion-col size="7.3">
+          <ion-text *ngIf="equipo.codigo_interno !== '' || equipo.codigo_interno !== null" >
+            <h6>{{equipo.codigo_interno}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.codigo_interno === '' || equipo.codigo_interno === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Marca :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="equipo.marca !== '' || equipo.marca !== null" >
+            <h6>{{equipo.marca}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.marca === '' || equipo.marca === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Modelo :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="equipo.modelo !== '' || equipo.modelo !== null" >
+            <h6>{{equipo.modelo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.modelo === '' || equipo.modelo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.4">
+          <ion-badge class="badge">Serie :</ion-badge>
+        </ion-col>
+        <ion-col size="9.6">
+          <ion-text *ngIf="equipo.serie !== '' || equipo.serie !== null" >
+            <h6>{{equipo.serie}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.serie === '' || equipo.serie === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2">
+          <ion-badge class="badge">SIM :</ion-badge>
+        </ion-col>
+        <ion-col size="10">
+          <ion-text *ngIf="equipo.sim !== '' || equipo.sim !== null" >
+            <h6>{{equipo.sim}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.sim === '' || equipo.sim === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4.2">
+          <ion-badge class="badge">Nombre SIM :</ion-badge>
+        </ion-col>
+        <ion-col size="7.8">
+          <ion-text *ngIf="equipo.sim_nombre !== '' || equipo.sim_nombre !== null" >
+            <h6>{{equipo.sim_nombre}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.sim_nombre === '' || equipo.sim_nombre === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.2">
+          <ion-badge class="badge">Tipo :</ion-badge>
+        </ion-col>
+        <ion-col size="9.8">
+          <ion-text *ngIf="equipo.tipo !== '' || equipo.tipo !== null" >
+            <h6>{{equipo.tipo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.tipo === '' || equipo.tipo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.6">
+          <ion-badge class="badge">Ubicación :</ion-badge>
+        </ion-col>
+        <ion-col size="8.4">
+          <ion-text *ngIf="equipo.ubicacion !== '' || equipo.ubicacion !== null" >
+            <h6>{{equipo.ubicacion}}</h6>
+          </ion-text>
+          <ion-text *ngIf="equipo.ubicacion === '' || equipo.ubicacion === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

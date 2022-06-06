@@ -1,0 +1,201 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="menuId" class="icon-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ordenes de trabajo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="menuId" contentId="main" mode="md">
+  <ion-header>
+    <ion-toolbar class="menu">
+      <img src="../../../assets/img/logo.png" width="80%" slot="start" class="img">
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="menu-content">
+    <ion-menu-toggle>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/home">
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+          <ion-item routerLink="/perfil">
+            <ion-icon name="person-circle" slot="start"></ion-icon>
+            <ion-label>Perfil</ion-label>
+          </ion-item>
+          <ion-item routerLink="/security">
+            <ion-icon name="lock-closed" slot="start"></ion-icon>
+            <ion-label>Seguridad y Contraseña</ion-label>
+          </ion-item>
+          <ion-item routerLink="/notificaciones">
+            <ion-icon name="notifications" slot="start"></ion-icon>
+            <ion-label>Notificaciones</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-menu-toggle>
+  </ion-content>
+  <ion-footer>
+    <ion-menu-toggle>
+      <ion-toolbar>
+        <ion-buttons slot="end" mode="ios" class="item-padding-salir">
+          <ion-button color="dark" (click)="logOut()">
+            <ion-icon slot="start" name="power-outline" class="icon-menu"></ion-icon>
+            <ion-note color="light">Salir</ion-note>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-menu-toggle>
+  </ion-footer>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content>
+  <div>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  </div>
+  <ion-row class="row-refresh">
+    <ion-col size="12" class="center">
+        <p><ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon-refresh" slot="start"></ion-icon>
+          Desliza para recargar
+          <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon-refresh" slot="end"></ion-icon></p>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="cardSkeleton" >
+    <ion-card *ngFor="let cards of skeletonScreen">
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ion-skeleton-text animated style="width: 27%"></ion-skeleton-text>
+        </ion-card-subtitle>
+        <ion-card-title>
+          <ion-skeleton-text animated style="width: 40%" class="skeleton-tittle"></ion-skeleton-text>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2">
+              <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+            </ion-col>
+            <ion-col size="8.5">
+              <ion-text>
+                <ion-skeleton-text animated style="width: 65%"></ion-skeleton-text>
+              </ion-text>
+            </ion-col>
+            <ion-col size="1.1">
+              <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2.5">
+              <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+            </ion-col>
+            <ion-col size="8">
+              <ion-text>
+                <ion-skeleton-text animated style="width: 85%"></ion-skeleton-text>
+              </ion-text>
+            </ion-col>
+            <ion-col size="1.1">
+              <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2.5">
+              <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+            </ion-col>
+            <ion-col size="8">
+              <ion-text>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </ion-text>
+            </ion-col>
+            <ion-col size="1.1">
+              <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.2">
+              <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+            </ion-col>
+            <ion-col size="7.3">
+              <ion-text>
+                <ion-skeleton-text animated style="width: 97%"></ion-skeleton-text>
+              </ion-text>
+            </ion-col>
+            <ion-col size="1.1">
+              <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="!cardSkeleton">
+    <ion-card *ngFor="let orden of OrdenesDeTrabajo; index as i" class="ion-activatable animate__animated animate__bounceInLeft" (click)="mostrarModal(orden.codigo, i, orden.status_codigo)">
+      <ion-card-header>
+        <ion-card-subtitle>Orden de trabajo</ion-card-subtitle>
+        <ion-card-title class="title">{{orden.nombre_cliente}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3.1">
+              <ion-badge class="badge">Código :</ion-badge>
+            </ion-col>
+            <ion-col size="6.9">
+              <ion-text>
+                <h3 class="descripcion">{{orden.codigo}}</h3>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="code-working" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.6">
+              <ion-badge class="badge">Ejecutivo :</ion-badge>
+            </ion-col>
+            <ion-col size="6.4">
+              <ion-text>
+                <h6 class="descripcion">{{orden.ejecutivo}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="person" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="4.2">
+              <ion-badge class="badge">Fecha y hora:</ion-badge>
+            </ion-col>
+            <ion-col size="5.8">
+              <ion-text>
+                <h6 class="descripcion">{{orden.fecha_hora}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="alarm" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+  </div>
+
+  <ion-card *ngIf="noData">
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">No hay ordenes de trabajo disponibles!</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

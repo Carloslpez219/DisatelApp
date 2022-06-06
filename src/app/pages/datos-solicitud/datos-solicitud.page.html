@@ -1,0 +1,689 @@
+<ion-header *ngIf="!viewEntered">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>OT No. ###</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!viewEntered">
+  <br>
+  <br>
+  <ion-item-divider style="margin-top: 4%;">
+    <ion-skeleton-text animated style="width: 40%; height: 11px"></ion-skeleton-text>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%; height: 11px"></ion-skeleton-text>
+      </h3>
+    </ion-label>
+  </ion-item>
+  <ion-item-divider>
+    <ion-skeleton-text animated style="width: 40%; height: 11px"></ion-skeleton-text>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%; height: 11px"></ion-skeleton-text>
+      </h3>
+    </ion-label>
+  </ion-item>
+  <ion-item-divider>
+    <ion-skeleton-text animated style="width: 40%; height: 11px"></ion-skeleton-text>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%; height: 11px"></ion-skeleton-text>
+      </h3>
+    </ion-label>
+  </ion-item>
+  <ion-item-divider>
+    <ion-skeleton-text animated style="width: 40%; height: 11px"></ion-skeleton-text>
+  </ion-item-divider>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="8.5">
+            <ion-text>
+              <ion-skeleton-text animated style="width: 65%"></ion-skeleton-text>
+            </ion-text>
+          </ion-col>
+          <ion-col size="1.1">
+            <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="2.5">
+            <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="8">
+            <ion-text>
+              <ion-skeleton-text animated style="width: 85%"></ion-skeleton-text>
+            </ion-text>
+          </ion-col>
+          <ion-col size="1.1">
+            <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="2.5">
+            <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="8">
+            <ion-text>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </ion-text>
+          </ion-col>
+          <ion-col size="1.1">
+            <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-item-divider>
+    <ion-skeleton-text animated style="width: 40%; height: 11px"></ion-skeleton-text>
+  </ion-item-divider>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="8.5">
+            <ion-text>
+              <ion-skeleton-text animated style="width: 65%"></ion-skeleton-text>
+            </ion-text>
+          </ion-col>
+          <ion-col size="1.1">
+            <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="2.5">
+            <ion-skeleton-text animated class="skeleton-badge"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="8">
+            <ion-text>
+              <ion-skeleton-text animated style="width: 85%"></ion-skeleton-text>
+            </ion-text>
+          </ion-col>
+          <ion-col size="1.1">
+            <ion-skeleton-text animated class="skeleton-icon"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-header *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>OT No. {{orden.codigo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="1.7">
+    </ion-col>
+    <ion-col size="8">
+      <ion-card class="ion-card-presente center-text-presente" style="margin-bottom: 35px; margin-top: 8px;" (click)="location()">
+        <ion-card-header style="padding-bottom: 29px;">
+          <ion-text>
+            <ion-note class="ion-note-presente" style="margin-top: 5px;">&nbsp;&nbsp;&nbsp;Presentar ubicación</ion-note>
+          </ion-text>
+        </ion-card-header>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-card>
+    </ion-col>
+    <ion-col size="2.3">
+    </ion-col>
+    <ion-row class="row">
+      <ion-col size="12"></ion-col>
+    </ion-row>
+  </ion-row>
+</ion-grid>
+<ion-item-group>
+  <ion-item-divider class="divider" *ngIf="orden.fecha_hora !== '' || orden.fecha_hora !== null">
+    <ion-label>Fecha y hora:</ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>{{ orden.fecha_hora }}</ion-label>
+  </ion-item>
+  <ion-item-divider *ngIf="orden.ejecutivo !== '' || orden.ejecutivo !== null">
+    <ion-label>Ejecutivo:</ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>{{orden.ejecutivo}}</ion-label>
+  </ion-item>
+  <ion-item-divider *ngIf="orden.nombre_cliente !== '' || orden.nombre_cliente !== null">
+    <ion-label>Nombre del cliente:</ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>{{orden.nombre_cliente}}</ion-label>
+  </ion-item>
+  <ion-item-divider>
+    <ion-label>Observaciones:</ion-label>
+  </ion-item-divider>
+ 
+<ion-card button (click)="mostrarModalObservaciones(orden.observaciones)" style="padding-top: 31px;">
+  <ion-row>
+    <ion-col size="12" class="center">
+      <p>
+        <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+        Ver observaciones
+        <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+      </p>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+  <ion-item-divider *ngIf="servicios.length !== 0">
+    <ion-label>Trabajos:</ion-label>
+  </ion-item-divider>
+
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let servicio of servicios">
+      <ion-card class="ion-card-slide">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="12" class="center">
+              <p>
+                <ion-icon name="arrow-back-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                Desliza para ver más
+                <ion-icon name="arrow-forward-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.5">
+              <ion-badge class="badge">Categoría :</ion-badge>
+            </ion-col>
+            <ion-col size="6.5">
+              <ion-text>
+                <h6>{{servicio.categoria}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="list" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="7">
+              <ion-badge class="badge">Servicio o producto solicitado :</ion-badge>
+            </ion-col>
+            <ion-col size="3">
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="construct" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row class="service-row">
+            <ion-col size="10">
+              <ion-text>
+                <h6 class="descripcion">{{servicio.servicio}}</h6>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.5">
+              <ion-badge class="badge">Cantidad :</ion-badge>
+            </ion-col>
+            <ion-col size="6.5">
+              <ion-text>
+                <h6>{{servicio.cantidad}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="apps" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-item-divider *ngIf="orden.sucursales.length !== 0">
+    <ion-label>Ubicación del trabajo:</ion-label>
+  </ion-item-divider>
+
+  <ion-card *ngFor="let ubicacion of orden.sucursales">
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="7">
+          <ion-badge class="badge">Nombre de la sucursal:</ion-badge>
+        </ion-col>
+        <ion-col size="3">
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-icon name="pricetags" class="ion-icon" style="zoom:1.7;"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      <ion-row class="service-row">
+        <ion-col size="10">
+          <ion-text>
+            <h6>{{ubicacion.nombre_sucursal}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="7">
+          <ion-badge class="badge">Direccion:</ion-badge>
+        </ion-col>
+        <ion-col size="3">
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-icon name="location-sharp" class="ion-icon" style="zoom:1.7;"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      <ion-row class="service-row">
+        <ion-col size="10">
+          <ion-text>
+            <h6 class="descripcion">{{ubicacion.direccion_sucursal}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4.6">
+          <ion-badge class="badge">Departamento :</ion-badge>
+        </ion-col>
+        <ion-col size="5.4">
+          <ion-text>
+            <h6>{{ubicacion.departamento}}</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-icon name="bookmark" class="ion-icon" style="zoom:1.7;"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.6">
+          <ion-badge class="badge">Municipio :</ion-badge>
+        </ion-col>
+        <ion-col size="6.4">
+          <ion-text>
+            <h6>{{ubicacion.municipio}}</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-icon name="bookmarks" class="ion-icon" style="zoom:1.7;"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <ion-badge class="badge">Latitud :</ion-badge>
+        </ion-col>
+        <ion-col size="7">
+          <ion-text>
+            <h6>{{ubicacion.latitud}}</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-icon name="earth" class="ion-icon" style="zoom:1.7;"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.5">
+          <ion-badge class="badge">Longitud :</ion-badge>
+        </ion-col>
+        <ion-col size="6.5">
+          <ion-text>
+            <h6>{{ubicacion.longitud}}</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons>
+            <ion-icon name="globe-outline" class="ion-icon" style="zoom:1.7;"></ion-icon>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item-divider *ngIf="tecnicos.length !== 0">
+    <ion-label>Técnicos asignados</ion-label>
+  </ion-item-divider>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let tecnico of tecnicos">
+      <ion-card class="ion-card-slide">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="12" class="center">
+              <p>
+                <ion-icon name="arrow-back-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                Desliza para ver más
+                <ion-icon name="arrow-forward-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="4.4">
+              <ion-badge class="badge">Fecha y hora :</ion-badge>
+            </ion-col>
+            <ion-col size="5.6">
+              <ion-text>
+                <h6>{{tecnico.asignacion}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="calendar" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.1">
+              <ion-badge class="badge">Usuario :</ion-badge>
+            </ion-col>
+            <ion-col size="6.9">
+              <ion-text>
+                <h6>{{tecnico.tecnico}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="person-circle" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item-divider *ngIf="orden.vehiculos.length !== 0">
+    <ion-label>Vehículos en la negociación</ion-label>
+  </ion-item-divider>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let vehiculo of orden.vehiculos; index as ind">
+      <ion-card [style]="vehiculo.color_status" class="ion-card-slide" (click)="mostrarModal(vehiculo, ind)">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="12" class="center">
+              <p>
+                <ion-icon name="arrow-back-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                Desliza para ver más
+                <ion-icon name="arrow-forward-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-label class="ion-icon-desliza">
+                <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon-desliza" slot="start">
+                </ion-icon>
+                <ion-note class="ion-note-desliza">&nbsp;Pulsa para ver detalles&nbsp;&nbsp;</ion-note>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2.9">
+              <ion-badge class="badge">Código :</ion-badge>
+            </ion-col>
+            <ion-col size="7.1">
+              <ion-text>
+                <h6>{{vehiculo.codigo}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="code-working" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2.6">
+              <ion-badge class="badge">Placa :</ion-badge>
+            </ion-col>
+            <ion-col size="7.4">
+              <ion-text>
+                <h6>{{vehiculo.placa}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="wallet" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="5.2">
+              <ion-badge class="badge">Tipo de vehículo :</ion-badge>
+            </ion-col>
+            <ion-col size="4.8">
+              <ion-text>
+                <h6>{{vehiculo.nombre}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="car-sport" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2.6">
+              <ion-badge class="badge">Marca :</ion-badge>
+            </ion-col>
+            <ion-col size="7.4">
+              <ion-text>
+                <h6>{{vehiculo.marca}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="list" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2.6">
+              <ion-badge class="badge">Color :</ion-badge>
+            </ion-col>
+            <ion-col size="7.4">
+              <ion-text>
+                <h6>{{vehiculo.color}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="color-palette" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item-divider *ngIf="orden.equipos.length !== 0">
+    <ion-label>Datos de los equipos</ion-label>
+  </ion-item-divider>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let equipo of orden.equipos">
+      <ion-card class="ion-card-slide" (click)="mostrarModalEquipo(equipo)">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="12" class="center">
+              <p>
+                <ion-icon name="arrow-back-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                Desliza para ver más
+                <ion-icon name="arrow-forward-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-label class="ion-icon-desliza">
+                <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon-desliza" slot="start">
+                </ion-icon>
+                <ion-note class="ion-note-desliza">&nbsp;Pulsa para ver detalles&nbsp;&nbsp;</ion-note>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3">
+              <ion-badge class="badge">Código :</ion-badge>
+            </ion-col>
+            <ion-col size="7">
+              <ion-text>
+                <h6>{{equipo.codigo}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="code-working" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="2.8">
+              <ion-badge class="badge">Marca :</ion-badge>
+            </ion-col>
+            <ion-col size="7.2">
+              <ion-text>
+                <h6>{{equipo.marca}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="list" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.1">
+              <ion-badge class="badge">Modelo :</ion-badge>
+            </ion-col>
+            <ion-col size="6.9">
+              <ion-text>
+                <h6>{{equipo.modelo}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="ellipsis-vertical-circle" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item-divider *ngIf="orden.sims.length !== 0">
+    <ion-label>Datos de los SIMs</ion-label>
+  </ion-item-divider>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let sim of orden.sims">
+      <ion-card class="ion-card-slide" (click)="mostrarModalSim(sim)">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="12" class="center">
+              <p>
+                <ion-icon name="arrow-back-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                Desliza para ver más
+                <ion-icon name="arrow-forward-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-label class="ion-icon-desliza">
+                <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon-desliza" slot="start">
+                </ion-icon>
+                <ion-note class="ion-note-desliza">&nbsp;Pulsa para ver detalles&nbsp;&nbsp;</ion-note>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.3">
+              <ion-badge class="badge">Telefonía :</ion-badge>
+            </ion-col>
+            <ion-col size="6.7">
+              <ion-text>
+                <h6>{{sim.telefonia}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="call" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.7">
+              <ion-badge class="badge">Capacidad :</ion-badge>
+            </ion-col>
+            <ion-col size="6.3">
+              <ion-text>
+                <h6>{{sim.capacidad}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="calculator" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3.2">
+              <ion-badge class="badge">Vehículo :</ion-badge>
+            </ion-col>
+            <ion-col size="6.8">
+              <ion-text>
+                <h6>{{sim.vehiculo}}</h6>
+              </ion-text>
+            </ion-col>
+            <ion-col size="2">
+              <ion-buttons>
+                <ion-icon name="car" class="ion-icon" style="zoom:1.7;"></ion-icon>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+</ion-item-group>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header *ngIf="viewEntered" class="animate__animated animate__bounceInDown">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ objDetalles.titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__bounceInDown">
+
+  <img src="../../../assets/img/logo.png" class="check">
+    <ion-item mode="md">
+      <ion-textarea rows="10" placeholder="Observaciones..." clearOnEdit="true" clearInput [(ngModel)]="observaciones"></ion-textarea>
+      <ion-icon name="chatbox-ellipses-outline" slot="start"></ion-icon>
+    </ion-item>
+
+  <ion-grid>
+    <br>
+    <ion-row>
+      <ion-col size="3">
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="button-save" (click)="method()"
+          strong="true">{{objDetalles.titulo}}
+          <ion-icon slot="start" color="white" name="{{objDetalles.icon}}"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

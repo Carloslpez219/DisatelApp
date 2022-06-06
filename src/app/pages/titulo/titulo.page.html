@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Categoría</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-radio-group mode="md" (ionChange)="seleccionarTitulo($event)">
+    <ion-list-header>
+      <ion-label>Elija la categoría de la imagen</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let titulo of titulos" >
+      <ion-label color="dark">{{titulo.nombre}}</ion-label>
+      <ion-radio slot="start" color="secondary" [value]="titulo.codigo"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+</ion-content>

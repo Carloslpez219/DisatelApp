@@ -1,0 +1,272 @@
+ion-content{
+    --background: #f0f0f0;
+}
+
+ion-toolbar {
+    --background: #66615B;
+    --color: white;
+}
+
+ion-note {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+}
+
+.ion-note-salir {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    color: white;
+}
+
+.delete {
+    margin-left: 75%;
+    margin-bottom: -6%;
+    width: 3%;
+    height: 28px;
+}
+
+.imageDefault{
+    height: 65%;
+    width: 65%;
+    display: block;
+    margin:auto;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.ion-note-desliza {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    margin-top: -3%;
+}
+
+.ion-icon-salir {
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+    color: white;
+}
+
+.ion-card-salir {
+    margin-top: 2%;
+    height: 50%;
+    --background: var(--ion-color-success);;
+}
+
+.ion-card-completado {
+    margin-top: 2%;
+    height: 50%;
+    --background: #4c4c4a;
+}
+
+.ion-card-presente {
+    margin-top: 2%;
+    height: 50%;
+    --background: #4c4c4a;
+    width: 94%;
+}
+
+.ion-card-another {
+    margin-top: -83px;
+    padding-bottom: 43px;
+    height: 50%;
+    --background: var(--ion-color-warning);;
+    width: 90%;
+}
+
+.ion-card-finalizar {
+    margin-top: 2%;
+    height: 50%;
+    --background: var(--ion-color-success);;
+    width: 90%;
+}
+
+.ion-card-fallida {
+    margin-top: -41px;
+    padding-bottom: 41px;
+    height: 50%;
+    --background: var(--ion-color-danger);;
+    width: 90%;
+}
+
+.ion-note-finalizar {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    padding-left: 11px;
+    color: white;
+}
+
+.ion-note-fallida {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    color: white;
+}
+
+.ion-note-cancelar {
+    font-size: 16px;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    color: white;
+}
+
+.ion-note-presente {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    color: white;
+}
+
+.ion-icon-another {
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+    color: white;
+}
+
+ion-item-group{
+    margin-top: -30px;
+}
+
+.service-row{
+    margin-top: -15px;
+    margin-left: 6px;
+}
+
+.badge{
+    --background: #4c4c4a;
+}
+
+.descripcion {
+    text-transform: lowercase;
+}
+
+h6 {
+    color: black;
+}
+
+.ion-icon {
+    color: gray;
+}
+
+.ion-icon-desliza{
+    color: gray;
+    margin-top: -3%;
+}
+
+.ion-card-slide{
+    width: 90%;
+}
+
+ion-slide {   
+    text-align: left;
+}
+
+ion-slides{
+    --bullet-background: rgb(59, 59, 59);
+    --bullet-background-active: black;
+}
+
+.center{
+    text-align: center;
+}
+
+p{
+    font-size: 16px;
+    color: #A6A6A6;
+    margin-top: -5%;
+}
+
+.center-text-fallida {
+    padding-left: 28px;
+}
+
+.center-text-presente {
+    padding-left: 0px;
+}
+
+.center-text-finalizar {
+    padding-left: 2px;
+}
+
+.center-text {
+    padding-left: 12px;
+}
+
+.divider{
+    margin-top: -79px;
+}
+
+.data-card{
+    margin-top: -78px;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) { 
+    .center-text {
+        padding-left: 78px;
+    }
+    .center-text-fallida {
+        padding-left: 94px;
+    }
+
+    .center-text-finalizar {
+        padding-left: 64px;
+    }
+
+    .center-text-presente {
+        padding-left: 66px;
+    }
+}
+
+.row{
+    margin-bottom: 31px;
+}
+
+ion-input {
+    --color: black;
+}
+
+ion-list {
+    background-color: #FFF;
+    padding-top: 7%;
+}
+
+////////////////////////////////////////////////////////////
+
+ion-item {
+    --border-color: transparent !important;
+    --background: #F7F7F6;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+///////////////////////////////////////////////////////////
+
+.ilist{
+    --background: #ffffff;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

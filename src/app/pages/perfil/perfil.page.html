@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="!mostrarData">
+    <ion-card-header>
+      <ion-skeleton-text animated class="skeleton-img"></ion-skeleton-text>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-skeleton-text animated class="avatar"></ion-skeleton-text>
+      <ion-skeleton-text animated class="container-skeleton" style="width: 60%"></ion-skeleton-text>
+      <br>
+      <div *ngFor="let item of items" class="margin-bottom">
+        <ion-skeleton-text animated style="width: 15%" class="margin"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 90%" class="item-skeleton"></ion-skeleton-text>
+      </div>
+      <br>
+      <ion-grid class="margin-top-menos">
+        <ion-row>
+          <ion-col size="6">
+            <ion-skeleton-text animated style="width: 90%" class="button-skeleton"></ion-skeleton-text>
+          </ion-col>
+          <ion-col size="6">
+            <ion-skeleton-text animated style="width: 90%" class="button-skeleton"></ion-skeleton-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <br>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card *ngIf="mostrarData" class="animated-card animate__animated animate__fadeInDownBig">
+    <ion-card-header>
+      <ion-img src="../../../assets/img/fondo.jpeg" class="img animate__animated animate__fadeInUpBig"></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="6">
+            <ion-avatar class="avatar">
+              <img [src]="urlFoto">
+            </ion-avatar>
+          </ion-col>
+          <ion-col size="3">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-card-title class="container">{{perfilData?.nombre}}</ion-card-title>
+      <form (ngSubmit)="editProfile()" [formGroup]="profileForm">
+        <ion-list>
+          <small>Nombre:*</small>
+          <ion-item mode="md">
+            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+            <ion-input placeholder="User" type="name" clearOnEdit="true" clearInput formControlName="nombre">
+            </ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <span *ngIf="nombre.errors.required">
+              <ion-label class="error-container">Este campo es requerido</ion-label>
+            </span>
+          </div>
+          <small>E-mail:*</small>
+          <ion-item mode="md">
+            <ion-icon slot="start" name="mail-open-outline"></ion-icon>
+            <ion-input placeholder="Mail" type="name" clearOnEdit="true" clearInput formControlName="mail">
+            </ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+            <span *ngIf="mail.errors.required">
+              <ion-label class="error-container">Este campo es requerido</ion-label>
+            </span>
+            <span *ngIf="(mail.dirty || mail.touched) && mail.invalid && mail.errors.pattern">
+              <ion-label class="error-container">Enter an email valid</ion-label>
+            </span>
+          </div>
+          <small>Telefono:*</small>
+          <ion-item mode="md">
+            <ion-icon slot="start" name="call-sharp"></ion-icon>
+            <ion-input placeholder="telefono" type="name" clearOnEdit="true" clearInput formControlName="telefono">
+            </ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+            <span *ngIf="telefono.errors.required">
+              <ion-label class="error-container">Este campo es requerido</ion-label>
+            </span>
+          </div>
+        </ion-list>
+        <ion-grid>
+          <br>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button expand="block" class="button-clean" fill="outline" color="dark" (click)="clean()"
+                strong="true">Limpiar
+                <ion-icon slot="start" color="black" name="close-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button expand="block" class="button-save" type="submit" [disabled]="!profileForm.valid"
+                strong="true">Guardar
+                <ion-icon slot="start" color="white" name="save"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

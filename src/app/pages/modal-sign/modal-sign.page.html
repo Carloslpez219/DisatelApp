@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Agregar firmar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Dibujar firma:</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <signature-pad [options]="signaturePadOptions" (onEndEvent)="drawComplete()" class="width">
+      </signature-pad>
+      <ion-grid>
+        <br>
+        <ion-row>
+          <ion-col size="6">
+              <ion-button expand="block" (click)="reset()"
+              strong="true" class="button-clean" fill="outline" color="dark">Reset
+              <ion-icon slot="start" color="white" name="close-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button expand="block" (click)="ok()"
+            strong="true" class="button-save">Ok
+            <ion-icon slot="start" color="white" name="checkmark-sharp"></ion-icon>
+          </ion-button>
+      </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,28 @@
+
+.width{
+    text-align: center;
+    display: block;
+    margin:auto;
+    margin-top: 7%;
+}
+
+
+.button-clean{
+    --background: white;
+    margin-top: 10%;
+}
+
+.button-save{
+    --background: #2D383F;
+    color: white;
+    margin-top: 10%;
+}
+
+ion-toolbar{
+    --background: #2D383F;
+    color: white;
+}
+
+ion-content{
+    --background: #F6F6F6;
+}

@@ -1,0 +1,132 @@
+ion-content{
+    --background: #f0f0f0;
+}
+
+ion-toolbar {
+    --background: #66615B;
+    --color: white;
+}
+
+.ion-card-slide{
+    width: 90%;
+}
+
+ion-slide {   
+    text-align: left;
+}
+
+ion-slides{
+    --bullet-background: rgb(59, 59, 59);
+    --bullet-background-active: black;
+}
+
+ion-segment{
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+ion-segment-button{
+    --background-checked: white;
+    --indicator-color: #403D39;
+    --color-checked: white;
+    font-weight: 900;
+    --color: #9A9A9A;
+    --background: #F6F6F6;
+    --border-radius: 0%;
+}
+
+.imageDefaultS{
+    height: 65%;
+    width: 65%;
+    display: block;
+    margin:auto;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.imageDefault{
+    height: 65%;
+    width: 65%;
+    display: block;
+    margin:auto;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.center{
+    text-align: center;
+}
+
+.ion-icon {
+    color: rgb(167, 165, 165);
+}
+
+.button-save {
+    --background:#66615B;
+    color: white;
+    margin-top: 10%;
+}
+
+ion-input {
+    --color: black;
+}
+
+ion-list {
+    background-color: #FFF;
+    padding-top: 7%;
+}
+
+ion-item {
+    --border-color: transparent !important;
+    --background: #F7F7F6;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.ion-icon-another {
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+    color: white;
+}
+
+.ion-card-fallida {
+    margin-top: -41px;
+    padding-bottom: 41px;
+    height: 50%;
+    --background: var(--ion-color-danger);;
+    width: 90%;
+}
+
+.center-text-fallida {
+    padding-left: 28px;
+}
+
+.ion-note-fallida {
+    font-size: 16px;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    color: white;
+}
+
+.ion-card-another {
+    margin-top: -83px;
+    padding-bottom: 43px;
+    height: 50%;
+    --background: var(--ion-color-warning);;
+    width: 90%;
+}
+
+.center-text {
+    padding-left: 12px;
+}
+
+.ion-note-cancelar {
+    font-size: 16px;
+    top: 30%;
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    text-align: center;
+    color: white;
+}

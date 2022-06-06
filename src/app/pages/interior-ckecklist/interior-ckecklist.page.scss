@@ -1,0 +1,42 @@
+ion-content{
+    --background: #f0f0f0;
+}
+
+ion-toolbar {
+    --background: #66615B;
+    --color: white;
+}
+
+.ion-card-slide{
+    width: 90%;
+}
+
+ion-slide {   
+    text-align: left;
+}
+
+ion-slides{
+    --bullet-background: rgb(59, 59, 59);
+    --bullet-background-active: black;
+}
+
+ion-segment{
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+ion-segment-button{
+    --background-checked: white;
+    --indicator-color: #403D39;
+    --color-checked: white;
+    font-weight: 900;
+    --color: #9A9A9A;
+    --background: #F6F6F6;
+    --border-radius: 0%;
+}
+
+.button-save {
+    --background:#66615B;
+    color: white;
+    margin-top: 10%;
+}

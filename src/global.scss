@@ -1,0 +1,164 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.pop-Over {
+    --background: white;
+    --height: 11%;
+    --width: 76%
+}
+
+.popover {
+    --background: white;
+    --width: 67%;
+    --height: 16.4%;
+}
+
+ion-modal.with-top {
+    --border-radius: 0 40px 0 0;
+    align-items: flex-end !important;
+    --height: 78% !important;
+    --background: transparent;
+    --backdrop-opacity: 0.5 !important;
+
+    @media screen and (max-width: 420px) {
+        --height: 78% !important;
+    }
+}
+
+ion-modal.width-height {
+    --border-radius: 8px 30px 30px 30px;
+    align-items: center !important;
+    --height: 40% !important;
+    --width: 30% !important;
+    min-width: 250px !important;
+    --backdrop-opacity: 0.4 !important;
+    top: -40% !important;
+
+    @media screen and (max-width: 420px) {
+        --height: 22% !important;
+        --width: 90% !important;
+    }
+}
+
+ion-modal.width-height2 {
+    --border-radius: 8px 30px 30px 30px;
+    align-items: center !important;
+    --height: 40% !important;
+    --width: 30% !important;
+    min-width: 250px !important;
+    --backdrop-opacity: 0.4 !important;
+    top: -27% !important;
+
+    @media screen and (max-width: 420px) {
+        --height: 46% !important;
+        --width: 90% !important;
+    }
+}
+
+ion-modal.width-height-cropper {
+    --border-radius: 8px 22px 22px 22px;
+    align-items: center !important;
+    --height: 40% !important;
+    --width: 30% !important;
+    min-width: 300px;
+    --backdrop-opacity: 0.4 !important;
+
+    @media screen and (max-width: 420px) {
+        --height: 56% !important;
+        --width: 90% !important;
+    }
+}
+
+.errors-contact {
+    background: #F2DEDE;
+    border-radius: 7px;
+    color: #66615B;
+    padding: 10px 15px 15px 15px;
+    margin: 0 auto 10px auto;
+    width: 90%;
+    text-align: left;
+}
+
+.errors {
+    background: #F2DEDE;
+    border-radius: 7px;
+    color: #66615B;
+    padding: 10px 15px 15px 15px;
+    margin: -12px auto 10px auto;
+    width: 98%;
+    text-align: left;
+}
+
+// Animaciones
+.animated-card {
+    -webkit-animation-duration: 1.2s;
+    animation-duration: 1.2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    padding-right: 3%;
+    padding-left: 3%;
+    background-color: #FFF;
+}
+
+.animated{
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.fast {
+    -webkit-animation-duration: 80ms;
+    animation-duration: 80ms;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}

@@ -1,0 +1,421 @@
+<ion-header *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Vehículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+
+  <ion-grid fixed>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo === 1">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="ion-card-salir center-text ion-activatable" (click)="iniciarTrabajo()">
+          <ion-card-header>
+            <ion-icon name="stopwatch" style="zoom:1.5" class="ion-icon-salir"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-salir">&nbsp;&nbsp;Iniciar Trabajo</ion-note>
+            </ion-text>
+          </ion-card-header>
+        <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+      <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo === 1"
+        class="row">
+        <ion-col size="12"></ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo ===  4">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="ion-card-finalizar center-text-finalizar ion-activatable" (click)="finalizarTrabajo()">
+          <ion-card-header>
+            <ion-icon name="checkbox" style="zoom:1.5" class="ion-icon-another"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-finalizar">&nbsp;&nbsp;Finalizar trabajo</ion-note>
+            </ion-text>
+          </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo ===  4" style="margin-top: 24px;">
+      <ion-col size="12"></ion-col>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo ===  3 && pruebas === false">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="ion-card-completado center-text-finalizar ion-activatable">
+          <ion-card-header>
+            <ion-icon name="checkbox" style="zoom:1.5" class="ion-icon-another"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-finalizar">&nbsp;Pruebas solcitadas</ion-note>
+            </ion-text>
+          </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo ===  3 && pruebas === false" style="margin-top: 30px;">
+      <ion-col size="12"></ion-col>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo ===  2 && pruebas === false">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="ion-card-finalizar center-text-finalizar ion-activatable" (click)="solicitarPruebas()">
+          <ion-card-header>
+            <ion-icon name="checkbox" style="zoom:1.5" class="ion-icon-another"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-finalizar">&nbsp;&nbsp;Solicictar pruebas</ion-note>
+            </ion-text>
+          </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo ===  2 && vehiculoTrabajando.situacion_trabajo !== 6">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="ion-card-fallida center-text-fallida ion-activatable" (click)="trabajoFallido()">
+          <ion-card-header>
+            <ion-icon name="close-circle" style="zoom:1.5" class="ion-icon-another"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-fallida">&nbsp;&nbsp;Fallido</ion-note>
+            </ion-text>
+          </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo ===  2 && vehiculoTrabajando.situacion_trabajo !== 6">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="ion-card-another center-text ion-activatable" (click)="cancelarTrabajo()">
+          <ion-card-header>
+            <ion-icon name="close-circle-outline" style="zoom:1.5" class="ion-icon-another"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-cancelar">&nbsp;&nbsp;Cancelar visita</ion-note>
+            </ion-text>
+          </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo === 5 || vehiculoTrabajando.situacion_trabajo === 10 || vehiculoTrabajando.situacion_trabajo === 0">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="ion-card-completado center-text">
+          <ion-card-header>
+            <ion-icon name="alert-circle" style="zoom:1.5" class="ion-icon-salir"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-salir">&nbsp;&nbsp;Completado</ion-note>
+            </ion-text>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+      <ion-row *ngIf="vehiculoTrabajando.situacion_trabajo === 5 || vehiculoTrabajando.situacion_trabajo === 10 || vehiculoTrabajando.situacion_trabajo === 0" class="row">
+        <ion-col size="12"></ion-col>
+      </ion-row>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="data-card">
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="2">
+          <ion-label>
+            <ion-icon name="car" style="zoom:3;" class="ion-icon" slot="start"></ion-icon>
+          </ion-label>
+        </ion-col>
+        <ion-col size="10">
+          <ion-label class="alignright">
+            <ion-note style="font-size: 22px;">&nbsp;Datos generales&nbsp;</ion-note>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Placa :</ion-badge>
+        </ion-col>
+        <ion-col size="7.4">
+          <ion-text *ngIf="vehiculoTrabajando.placa !== '' || vehiculoTrabajando.placa !== null">
+            <h6>{{vehiculoTrabajando.placa}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.placa === '' || vehiculoTrabajando.placa === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1.6">
+          <ion-badge class="badge">ID :</ion-badge>
+        </ion-col>
+        <ion-col size="10.4">
+          <ion-text *ngIf="vehiculoTrabajando.ID !== '' || vehiculoTrabajando.ID !== null">
+            <h6>{{vehiculoTrabajando.ID}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.ID === '' || vehiculoTrabajando.ID === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5.2">
+          <ion-badge class="badge">Tipo de vehículo :</ion-badge>
+        </ion-col>
+        <ion-col size="6.8">
+          <ion-text *ngIf="vehiculoTrabajando.nombre !== '' || vehiculoTrabajando.nombre !== null">
+            <h6>{{vehiculoTrabajando.nombre}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.nombre === '' || vehiculoTrabajando.nombre === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Marca :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="vehiculoTrabajando.marca !== '' || vehiculoTrabajando.marca !== null">
+            <h6>{{vehiculoTrabajando.marca}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.marca === '' || vehiculoTrabajando.marca === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Color :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="vehiculoTrabajando.color !== '' || vehiculoTrabajando.color !== null">
+            <h6>{{vehiculoTrabajando.color}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.color === '' || vehiculoTrabajando.color === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Franjas :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculoTrabajando.franjas !== '' || vehiculoTrabajando.franjas !== null">
+            <h6>{{vehiculoTrabajando.franjas}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.franjas === '' || vehiculoTrabajando.franjas === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Línea :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="vehiculoTrabajando.linea !== '' || vehiculoTrabajando.linea !== null">
+            <h6>{{vehiculoTrabajando.linea}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.linea === '' || vehiculoTrabajando.linea === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Modelo :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculoTrabajando.modelo !== '' || vehiculoTrabajando.modelo !== null">
+            <h6>{{vehiculoTrabajando.modelo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculoTrabajando.modelo === '' || vehiculoTrabajando.modelo === null">
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+<ion-grid fixed *ngIf="vehiculoTrabajando.situacion_trabajo ===  2">
+  <ion-row>
+    <ion-col size="9"></ion-col>
+    <ion-col size="3">
+      <ion-button (click)="onClick()" color="medium" style="height: 30px;
+      width: 61px;
+      margin-top: -39px;
+      margin-bottom: -21px;">
+        <ion-icon slot="icon-only" name="barcode-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-card *ngIf="vehiculoTrabajando.situacion_trabajo ===  2">
+  <ion-card-header style="    margin-bottom: -21px;">
+    <ion-card-subtitle>Responsable</ion-card-subtitle>
+  </ion-card-header>
+  <ion-list>
+    <ion-item mode="md">
+      <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+      <ion-input placeholder="Recibe" type="name" clearOnEdit="false" [(ngModel)]="recibe">
+      </ion-input>
+    </ion-item>
+  </ion-list>
+</ion-card>
+
+  <ion-list *ngIf="vehiculoTrabajando.situacion_trabajo ===  2">
+    <ion-item-divider>
+      <ion-label>Seleccione un equipo:</ion-label>
+    </ion-item-divider>
+    <ion-item *ngIf="ordenEspe.equipos.length === 0" >
+      <ion-label>No hay equipos asignados a esta orden</ion-label>
+    </ion-item>
+    <ion-radio-group mode="md" (ionChange)="seleccionarEquipo($event)" [value]="equipoValue" *ngIf="ordenEspe.equipos.length !== 0" >
+      <ion-item *ngFor="let equipo of ordenEspe.equipos">
+        <ion-label>Serie {{ equipo.serie }}</ion-label>
+        <ion-radio slot="start" value="{{ equipo.codigo }}" color="secondary"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- 
+   <ion-list class="ilist">
+        <ion-list-header>
+          Equipos seleccionados
+        </ion-list-header>
+      <br>
+      <ion-label class="alignleft">
+          <ion-note>&nbsp;&nbsp;Drag to delete&nbsp;</ion-note>
+            <ion-icon name="arrow-forward-outline" style="zoom:0.9;" class="ion-icon"></ion-icon>
+          </ion-label>
+          <ion-label class="alignright">
+            <ion-icon name="arrow-back-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+            <ion-note>&nbsp;Drag to open&nbsp;&nbsp;</ion-note>
+          </ion-label>
+  
+      <ion-item-sliding *ngFor="let equipo of ordenEspe.equipos" class="ilist">
+        <ion-item-options side="start" class="ilist">
+          <ion-item-option color="danger" expandable>
+            <ion-icon slot="icon-only" name="trash-sharp"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        
+        <ion-item class="ilist">
+          <ion-label>
+            <h2>Serie {{ equipo.serie }} </h2>
+            <h3>{{ equipo.modelo }}</h3>
+          </ion-label>
+        </ion-item>
+      
+      <ion-item-options side="end" class="ilist">
+        <ion-item-option color="tertiary" expandable>
+          <ion-icon slot="icon-only" name="arrow-forward-circle-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  -->
+  <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+  <ion-list *ngIf="vehiculoTrabajando.situacion_trabajo ===  2">
+    <ion-item-divider>
+      <ion-label>Seleccione una SIM:</ion-label>
+    </ion-item-divider>
+    <ion-item *ngIf="ordenEspe.sims.length === 0" >
+      <ion-label>No hay sims asignadas a esta orden</ion-label>
+    </ion-item>
+    <ion-radio-group mode="md" (ionChange)="seleccionarSim($event)" [(ngModel)]="simValue" *ngIf="ordenEspe.sims.length !== 0">
+      <ion-item *ngFor="let sim of ordenEspe.sims">
+        <ion-label>{{sim.telefono}} | {{sim.codigo}}</ion-label>
+        <ion-radio slot="start" value="{{ sim.codigo }}" color="secondary"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+
+    <ion-item-divider *ngIf="mostrarFoto">
+      <ion-label>Imágen(es) por subir</ion-label>
+    </ion-item-divider>
+
+    <div *ngIf="mostrarFoto">
+      <div *ngFor="let foto of fotos; index as i">
+        <ion-button color="danger" class="delete" (click)="deletePhotoArray(i)">
+          X
+        </ion-button>
+        <img [src]="foto" class="imageDefault">
+      </div>
+    </div>
+
+    <ion-grid fixed *ngIf="fotos.length !== 0">
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="6">
+          <ion-button (click)="subirImagenes()" expand="block" fill="solid" shape="round" color="dark">
+            Subir imágen(es)
+          </ion-button>
+        </ion-col>
+        <ion-col size="3"></ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item-divider *ngIf="photosUploaded.length !== 0">
+      <ion-label>Imágen(es) Subida(s)</ion-label>
+    </ion-item-divider>
+
+    <div *ngIf="photosUploaded.length !== 0">
+      <div *ngFor="let subida of photosUploaded">
+        <img [src]="subida" class="imageDefault">
+      </div>
+    </div>
+
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" *ngIf="vehiculoTrabajando.situacion_trabajo ===  2">
+    <ion-fab-button color="secondary" class="width">
+      <ion-icon name="images"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="takePicture()" color="primary" class="width">
+        <ion-icon name="camera" style="zoom:1.5;"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="openGallery()" color="primary" class="width">
+        <ion-icon name="image" style="zoom:1.5;"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+</ion-content>

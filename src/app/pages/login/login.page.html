@@ -1,0 +1,44 @@
+<ion-content>
+  <div class="container">
+    <div class="header">
+    </div>
+    <ion-card class="body animate__animated animate__bounceInDown">
+      <div class="img">
+        <img src="../../../assets/img/logo.png" class="animate__animated animate__bounce">
+      </div>
+      <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <ion-list>
+          <ion-item mode="md">
+            <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+            <ion-input placeholder="User" type="name" clearOnEdit="true" clearInput formControlName="nombre">
+            </ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <span *ngIf="nombre.errors.required">
+              <ion-label class="error-container">This field is required</ion-label>
+            </span>
+          </div>
+          <ion-item mode="md">
+            <ion-icon slot="start" name="lock-open"></ion-icon>
+            <ion-input placeholder="Password" type="password" clearOnEdit="true" clearInput formControlName="password">
+            </ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <span *ngIf="password.errors.required">
+              <ion-label class="error-container">This field is required</ion-label>
+            </span>
+          </div>
+        </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button expand="block" class="button-1" type="submit" [disabled]="!loginForm.valid">Login
+                <ion-icon slot="start" color="white" name="enter-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,336 @@
+<ion-header *ngIf="!viewEntered && viewEntered2" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light">
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header class="animate__animated animate__fadeIn" *ngIf="viewEntered">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Recepción de vehículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+
+  <ion-grid>
+    <ion-row style="    margin-bottom: -43px;
+    margin-top: -19px;">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card style="height: 45px;" color="danger" class="center-text-fallida ion-activatable" (click)="trabajoFallido()">
+          <ion-card-header>
+            <ion-icon name="close-circle" style="zoom:1.5" class="ion-icon-another"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-fallida">&nbsp;&nbsp;Fallido</ion-note>
+            </ion-text>
+          </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-bottom: -41px;">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="8">
+        <ion-card  style="height: 45px;" color="warning" class="center-text-fallida ion-activatable" (click)="cancelarTrabajo()">
+          <ion-card-header style="    padding-left: 0px;">
+            <ion-icon name="close-circle-outline" style="zoom:1.5" class="ion-icon-another"></ion-icon>
+            <ion-text>
+              <ion-note class="ion-note-fallida">&nbsp;&nbsp;Cancelar visita</ion-note>
+            </ion-text>
+          </ion-card-header>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let item of titulos; index as i" >
+      <ion-card class="ion-card-slide" (click)="presentActionSheet(i)">
+          <ion-card-header>
+            <ion-card-subtitle>Agregar foto</ion-card-subtitle>
+            <ion-card-title>{{item.nombre}}</ion-card-title>
+            <ion-row>
+              <ion-col size="12" class="center">
+                <p style="color: rgb(167, 165, 165);">
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                    Pulsa para agregar una foto
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content style="margin-top: -46px;">
+            <div *ngIf="mostrarFoto[i]">
+                <img [src]="fotos[i]" class="imageDefault">
+            </div>
+            <div *ngIf="!mostrarFoto[i]">
+              <ion-icon name="camera" style="zoom: 18;"></ion-icon>
+            </div>
+          </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <!-- <ion-slide>
+      <ion-card class="ion-card-slide" (click)="takePicture2()">
+          <ion-card-header>
+            <ion-card-subtitle>Agregar foto</ion-card-subtitle>
+            <ion-card-title>{{titulos[1].nombre}}</ion-card-title>
+            <ion-row>
+              <ion-col size="12" class="center">
+                <p style="color: rgb(167, 165, 165);">
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                    Pulsa para agregar una foto
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content style="margin-top: -46px;">
+            <div *ngIf="mostrarFoto2">
+                <img [src]="photo2" class="imageDefault">
+            </div>
+            <div *ngIf="!mostrarFoto2">
+              <ion-icon name="camera" style="zoom: 18;"></ion-icon>
+            </div>
+          </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class="ion-card-slide" (click)="takePicture3()">
+          <ion-card-header>
+            <ion-card-subtitle>Agregar foto</ion-card-subtitle>
+            <ion-card-title>{{titulos[2].nombre}}</ion-card-title>
+            <ion-row>
+              <ion-col size="12" class="center">
+                <p style="color: rgb(167, 165, 165);">
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                    Pulsa para agregar una foto
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content style="margin-top: -46px;">
+            <div *ngIf="mostrarFoto3">
+                <img [src]="photo3" class="imageDefault">
+            </div>
+            <div *ngIf="!mostrarFoto3">
+              <ion-icon name="camera" style="zoom: 18;"></ion-icon>
+            </div>
+          </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class="ion-card-slide" (click)="takePicture4()">
+          <ion-card-header>
+            <ion-card-subtitle>Agregar foto</ion-card-subtitle>
+            <ion-card-title>{{titulos[3].nombre}}</ion-card-title>
+            <ion-row>
+              <ion-col size="12" class="center">
+                <p style="color: rgb(167, 165, 165);">
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                    Pulsa para agregar una foto
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content style="margin-top: -46px;">
+            <div *ngIf="mostrarFoto4">
+                <img [src]="photo4" class="imageDefault">
+            </div>
+            <div *ngIf="!mostrarFoto4">
+              <ion-icon name="camera" style="zoom: 18;"></ion-icon>
+            </div>
+          </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card class="ion-card-slide" (click)="takePicture5()">
+          <ion-card-header>
+            <ion-card-subtitle>Agregar foto</ion-card-subtitle>
+            <ion-card-title>Otro...</ion-card-title>
+            <ion-row>
+              <ion-col size="12" class="center">
+                <p style="color: rgb(167, 165, 165);">
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="start"></ion-icon>
+                    Pulsa para agregar una foto
+                  <ion-icon name="arrow-down-outline" style="zoom:0.9;" class="ion-icon" slot="end"></ion-icon>
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content style="margin-top: -46px;">
+            <div *ngIf="mostrarFoto5">
+                <img [src]="photo5" class="imageDefault">
+            </div>
+            <div *ngIf="!mostrarFoto5">
+              <ion-icon name="camera" style="zoom: 18;"></ion-icon>
+            </div>
+          </ion-card-content>
+      </ion-card>
+    </ion-slide>-->
+  </ion-slides>
+
+  <ion-slides pager="true">
+    <ion-slide >
+      <ion-card class="ion-card-slide ion-activatable" (click)="mostrarModalLuces()">
+        <ion-card-header style="margin-bottom: -10px;">
+          <ion-card-subtitle>checklist</ion-card-subtitle>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="3">
+                <ion-icon name="aperture" style="zoom: 3.2; color: #e2e206; margin-top: -11%;"></ion-icon>
+              </ion-col>
+              <ion-col size="9">
+                <ion-card-title style="zoom: 1.1;">Luces</ion-card-title>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-card>
+    </ion-slide>
+    <ion-slide >
+      <ion-card class="ion-card-slide" (click)="mostrarModalInterior()">
+        <ion-card-header style="margin-bottom: -10px;">
+          <ion-card-subtitle>checklist</ion-card-subtitle>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="3">
+                <ion-icon name="file-tray-full" style="zoom: 3.2; color: #4fc6eb; margin-top: -11%;"></ion-icon>
+              </ion-col>
+              <ion-col size="9">
+                <ion-card-title style="zoom: 1.1;">Interior</ion-card-title>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+    <ion-slide >
+      <ion-card class="ion-card-slide" (click)="mostrarModalGenral()">
+        <ion-card-header style="margin-bottom: -10px;">
+          <ion-card-subtitle>checklist</ion-card-subtitle>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="3">
+                <ion-icon name="clipboard" style="zoom: 3.2; color: #3de274; margin-top: -11%;"></ion-icon>
+              </ion-col>
+              <ion-col size="9">
+                <ion-card-title style="zoom: 1.1;">General</ion-card-title>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card>
+    <ion-card-header style="    margin-bottom: -21px;">
+      <ion-card-subtitle>Responsable</ion-card-subtitle>
+    </ion-card-header>
+    <ion-list>
+      <ion-item mode="md">
+        <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+        <ion-input placeholder="Recibe" type="name" clearOnEdit="false" [(ngModel)]="recibe">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card class="ion-card-slide" style="padding-bottom: 6%; padding-top: 5%;">
+    <ion-card-subtitle style="padding-left: 5%; padding-bottom: 1%;">Firma</ion-card-subtitle>
+    <img src="../../../assets/img/imageSign.jpg" class="imageDefaultS" *ngIf="!mostrarFirma">
+    <img [src]="signature" class="imageDefaultS" *ngIf="mostrarFirma">
+  </ion-card>
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" style="width: 15%; zoom: 0.9; height: 7%;">
+      <ion-fab-button color="tertiary" (click)="mostrarModalSign()" class="width">
+        <ion-icon name="pencil-sharp" style="zoom:1.5;"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="3"></ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="button-save" strong="true" (click)="enviar()">
+          enviar
+          <ion-icon slot="start" color="white" name="send"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+<ion-content *ngIf="!viewEntered && viewEntered2" class="animate__animated animate__fadeIn">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-skeleton-text animated style="width: 40%;  height: 10px"></ion-skeleton-text>
+      </ion-card-subtitle>
+      <ion-card-title>
+        <ion-skeleton-text animated style="width: 70%; height: 15px; margin-top: 4%;"></ion-skeleton-text>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-skeleton-text animated style="width: 100%; height: 280px; margin-top: 4%; border-radius: 15px;"></ion-skeleton-text>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-skeleton-text animated style="width: 40%;  height: 10px"></ion-skeleton-text>
+      </ion-card-subtitle>
+      <ion-card-title>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="2">
+              <ion-skeleton-text animated style="width: 70%; height: 30px; border-radius: 8px;"></ion-skeleton-text>
+            </ion-col>
+            <ion-col size="10">
+              <ion-skeleton-text animated style="width: 70%; height: 18px; margin-top: 9px;"></ion-skeleton-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-skeleton-text animated style="width: 40%;  height: 10px"></ion-skeleton-text>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-skeleton-text animated style="width: 85%;
+      height: 96px;
+      margin-top: 4%;
+      border: -1px;
+      margin-left: 21px;
+      border-radius: 15px;"></ion-skeleton-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

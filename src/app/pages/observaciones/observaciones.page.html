@@ -1,0 +1,67 @@
+<ion-header *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Observaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+
+  <ion-card *ngFor="let observacion of observaciones" >
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label class="alignright">
+            <ion-icon name="document-attach" style="zoom:2;" class="ion-icon" slot="start"></ion-icon>
+            <ion-note style="font-size: 22px;">&nbsp;Observaciones&nbsp;</ion-note>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4.3">
+          <ion-badge class="badge">Fecha y hora :</ion-badge>
+        </ion-col>
+        <ion-col size="7.7">
+          <ion-text *ngIf="observacion.fecha_hora !== '' || observacion.fecha_hora !== null" >
+            <h6>{{observacion.fecha_hora}}</h6>
+          </ion-text>
+          <ion-text *ngIf="observacion.fecha_hora === '' || observacion.fecha_hora === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3.1">
+          <ion-badge class="badge">Usuario :</ion-badge>
+        </ion-col>
+        <ion-col size="8.9">
+          <ion-text *ngIf="observacion.usuario !== '' || observacion.usuario !== null" >
+            <h6>{{observacion.usuario}}</h6>
+          </ion-text>
+          <ion-text *ngIf="observacion.usuario === '' || observacion.usuario === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4.1">
+          <ion-badge class="badge">Observación:</ion-badge>
+        </ion-col>
+        <ion-col size="7.9">
+          <ion-text *ngIf="observacion.observacion !== '' || observacion.observacion !== null" >
+            <h6>{{observacion.observacion}}</h6>
+          </ion-text>
+          <ion-text *ngIf="observacion.observacion === '' || observacion.observacion === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

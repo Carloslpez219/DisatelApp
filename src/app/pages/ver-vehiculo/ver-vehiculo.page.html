@@ -1,0 +1,243 @@
+<ion-header *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()" color="light">Atrás
+        <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Vehículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content *ngIf="viewEntered" class="animate__animated animate__fadeIn">
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="2">
+          <ion-label>
+            <ion-icon name="car" style="zoom:3;" class="ion-icon" slot="start"></ion-icon>
+          </ion-label>
+        </ion-col>
+        <ion-col size="10">
+          <ion-label class="alignright">
+            <ion-note style="font-size: 22px;">&nbsp;Detalles del vehículo&nbsp;</ion-note>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Placa :</ion-badge>
+        </ion-col>
+        <ion-col size="7.4">
+          <ion-text *ngIf="vehiculo.placa !== '' || vehiculo.placa !== null" >
+            <h6>{{vehiculo.placa}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.placa === '' || vehiculo.placa === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1.6">
+          <ion-badge class="badge">ID :</ion-badge>
+        </ion-col>
+        <ion-col size="10.4">
+          <ion-text *ngIf="vehiculo.ID !== '' || vehiculo.ID !== null" >
+            <h6>{{vehiculo.ID}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.ID === '' || vehiculo.ID === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="5.2">
+          <ion-badge class="badge">Tipo de vehículo :</ion-badge>
+        </ion-col>
+        <ion-col size="6.8">
+          <ion-text *ngIf="vehiculo.nombre !== '' || vehiculo.nombre !== null" >
+            <h6>{{vehiculo.nombre}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.nombre === '' || vehiculo.nombre === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Marca :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="vehiculo.marca !== '' || vehiculo.marca !== null" >
+            <h6>{{vehiculo.marca}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.marca === '' || vehiculo.marca === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Color :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="vehiculo.color !== '' || vehiculo.color !== null" >
+            <h6>{{vehiculo.color}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.color === '' || vehiculo.color === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Chasis :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculo.chasis !== '' || vehiculo.chasis !== null" >
+            <h6>{{vehiculo.chasis}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.chasis === '' || vehiculo.chasis === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Código :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculo.codigo !== '' || vehiculo.codigo !== null" >
+            <h6>{{vehiculo.codigo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.codigo === '' || vehiculo.codigo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Equipo :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculo.equipo !== '' || vehiculo.equipo !== null" >
+            <h6>{{vehiculo.equipo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.equipo === '' || vehiculo.equipo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Flota :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="vehiculo.flota !== '' || vehiculo.flota !== null" >
+            <h6>{{vehiculo.flota}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.flota === '' || vehiculo.flota === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Franjas :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculo.franjas !== '' || vehiculo.franjas !== null" >
+            <h6>{{vehiculo.franjas}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.franjas === '' || vehiculo.franjas === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.6">
+          <ion-badge class="badge">Línea :</ion-badge>
+        </ion-col>
+        <ion-col size="9.4">
+          <ion-text *ngIf="vehiculo.linea !== '' || vehiculo.linea !== null" >
+            <h6>{{vehiculo.linea}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.linea === '' || vehiculo.linea === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Modelo :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculo.modelo !== '' || vehiculo.modelo !== null" >
+            <h6>{{vehiculo.modelo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.modelo === '' || vehiculo.modelo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4.9">
+          <ion-badge class="badge">Observaciones :</ion-badge>
+        </ion-col>
+        <ion-col size="7.1">
+          <ion-text *ngIf="vehiculo.observaciones !== '' || vehiculo.observaciones !== null" >
+            <h6>{{vehiculo.observaciones}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.observaciones === '' || vehiculo.observaciones === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.9">
+          <ion-badge class="badge">Trabajo :</ion-badge>
+        </ion-col>
+        <ion-col size="9.1">
+          <ion-text *ngIf="vehiculo.trabajo !== '' || vehiculo.trabajo !== null" >
+            <h6>{{vehiculo.trabajo}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.trabajo === '' || vehiculo.trabajo === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2">
+          <ion-badge class="badge">Sim :</ion-badge>
+        </ion-col>
+        <ion-col size="10">
+          <ion-text *ngIf="vehiculo.sim !== '' || vehiculo.sim !== null" >
+            <h6>{{vehiculo.sim}}</h6>
+          </ion-text>
+          <ion-text *ngIf="vehiculo.sim === '' || vehiculo.sim === null" >
+            <h6>No especificado</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <br>
+    <ion-row>
+      <ion-col size="3">
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" class="ion-button" (click)="mostrarModalVehiculo()"
+          strong="true">Trabajar
+          <ion-icon slot="start" color="white" name= "arrow-forward-circle"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="3">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
